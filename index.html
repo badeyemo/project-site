@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Challenge 13072020</title>
+   
+</head>
+<style>
+    body {
+    padding: 0;
+    margin: 0;
+    background: greenyellow;
+    text-align: center;
+    border: 5px solid salmon; 
+
+}
+
+span {
+    color: greenyellow;
+}
+</style>
+<body>
+    <main>
+        <header>
+            <h1><b><strong>Weekly Challenge</strong></b></h1>
+        </header>
+
+        <article>
+
+            <section>
+                <h2>SUMMATION OF MULTIPLES' OF 3 AND 5.</h2>
+                <p>Th Output of multiples of 3 and 5 from 0 to 1000.</p>
+                <p><span onclick="printmultiple()">Enter a number less than/equal 1000 here:</span></p>
+            </section>
+
+            <section>
+                <h2> INSERTION OF HYPHEN BETWEEN TWO EVEN NUMBERS</h2>
+                <p>This code prints a dash (-) between two even numbers and does not when an odd number appears before or after an even number.</p>
+                <p><span onclick="printdash()">Supply different integer numbers here:</span></p>
+            </section>
+
+            <section>
+                <h2>This Section Print The Most Frequent Values</h2>
+                <p>This code prints the most frequent item in an array.</p>
+                 <p><span onclick="printmode()">Supply Numbers to the array:</span></p>
+            </section>
+        </article>
+
+    </main>
+</body>
+<script>
+
+
+//Multiples
+
+const printmultiple = () => {
+
+let userInput = window.prompt('Enter a number less than or equal to 1000');
+
+var Store = 0;
+for (var count = 0; count <= 1000; count++)
+{
+if (count % 3 == 0 || count % 5 == 0)
+{
+   store += count;
+}
+}
+
+alert(`The sum of the multiples of 3 & 5 Less Than/Equal 1000 is ${store}!`);
+
+}
+
+
+//Even Hyphenation
+
+const printdash = () => {
+
+let num = prompt('Enter a number:');
+
+let str = num.toString();
+
+let output = [str[0]];
+
+for (let count = 1; count < num.length; count++) {
+
+    if (num[count - 1] % 2 == 0 && num[count] % 2 == 0) {
+
+        output.push('-', num[count]);
+
+    }
+
+    else {
+
+        output.push(num[count]);
+
+    }
+
+}
+
+alert('Here\'s your Dashed number: ' + output.join(''));
+
+}
+
+//Array frequency
+
+let freq = 0;
+
+let modeFreq = 1
+
+let arrayItem;
+
+
+
+const printmode = () => {
+
+
+let userInput = window.prompt('Enter an array!').split(',');
+
+for (let count = 0; count < userInput.length; count++) {
+
+    for (let counter = count; counter < userInput.length; counter++) {
+
+        if (userInput[counter] === userInput[count]) {
+
+            freq++;
+
+        }
+
+        if (freq > modeFreq) {
+
+            modeFreq = freq;
+
+            arrayItem = userInput[count];
+
+        }
+
+    }
+
+    freq = 0;
+
+}
+
+alert(`The mode is: ${arrayItem} (${modeFreq} times!)`);
+
+}
+</script>
+</html>
